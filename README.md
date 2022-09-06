@@ -34,7 +34,7 @@
 
 <h3><a href = "https://rubyonrails.org/">Rails</a></h3>
 <ul>
-   <li>Versão: 7.0.1.1</li>
+   <li>Versão: 7.0.2.2</li>
 </ul>
 
 <h3><a href = "https://www.codacy.com/product">Codacy</a></h3>
