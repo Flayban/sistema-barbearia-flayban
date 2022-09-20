@@ -71,9 +71,15 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 end
 
 group :production, :actions do
   gem 'pg', '~>1.1'
   gem 'activerecord-postgresql-adapter'
 end
+
+gem "cpf_cnpj"
+gem "ffi"
