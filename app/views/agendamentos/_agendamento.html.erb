@@ -1,4 +1,13 @@
 <div id="<%= dom_id agendamento %>">
+
+  <p>
+    <strong>Cliente:</strong>
+    <%= agendamento.cliente.nome %>
+  </p>
+  <p>
+    <strong>Barbeiro:</strong>
+    <%= agendamento.barbeiro.nome %>
+  </p>
   <p>
     <strong>Horario:</strong>
     <%= agendamento.horario %>

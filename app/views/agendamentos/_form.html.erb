@@ -12,6 +12,14 @@
   <% end %>
 
   <div>
+    <%= collection_select(:agendamento, :barbeiro_id, Barbeiro.all, :id, :nome , { prompt: "Selecionar Barbeiro"}) %>
+  </div>
+
+  <div>
+    <%= collection_select(:agendamento, :cliente_id, Cliente.all, :id, :nome , { prompt: "Selecionar Cliente"}) %>
+  </div>
+
+  <div>
     <%= form.label :horario, style: "display: block" %>
     <%= form.date_field :horario %>
   </div>

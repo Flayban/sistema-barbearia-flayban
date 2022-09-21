@@ -1,6 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @cliente %>
+<h1>.::Horarios já marcados::.</h1>
+<%= render @cliente.agendamentos %>
+<h1>.::Marque um horario na barbearia::.</h1>
+
+<%= form_with model:[@cliente, @cliente.agendamentos.build] do |form| %>
+  <div>
+    <%= collection_select(:agendamento, :barbeiro_id, Barbeiro.all, :id, :nome , { prompt: "Selecionar Barbeiro"}) %>
+  </div>
+
+  <div>
+    <%= form.label :horario, style: "display: block" %>
+    <%= form.date_field :horario %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
 
 <div>
   <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
