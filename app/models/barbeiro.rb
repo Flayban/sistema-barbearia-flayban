@@ -1,0 +1,2 @@
+class Barbeiro < ApplicationRecord
+end
