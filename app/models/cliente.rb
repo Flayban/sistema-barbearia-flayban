@@ -9,7 +9,7 @@ class Cliente < ApplicationRecord
   validate :nascimento_valido
 
   def nascimento_valido
-    if data_nascimento.present? && data_nascimento > Date.today
+    if data_nascimento.present? && data_nascimento > Time.zone.today
       errors.add(:data_nascimento, ': Data de nascimento invalida')
     end
   end
