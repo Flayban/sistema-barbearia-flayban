@@ -1,6 +1,7 @@
 require 'phonelib'
 class Cliente < ApplicationRecord
-  ##has_many agendamentos, dependent: :destroy
+
+  has_many :agendamentos, :dependent => :destroy
   ##has_many :barbeiros, through: :agendamentos
 
   validates :nome, presence: true, length: {in:3..35}, format: {with: /\A[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+\z/ }
