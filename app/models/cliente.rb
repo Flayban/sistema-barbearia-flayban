@@ -1,4 +1,6 @@
+require 'phonelib'
 class Cliente < ApplicationRecord
+
   has_many :agendamentos, :dependent => :destroy
   ##has_many :barbeiros, through: :agendamentos
 
