@@ -29,8 +29,6 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
-#ignore all iml files
-*.iml
 
 /public/assets
 
