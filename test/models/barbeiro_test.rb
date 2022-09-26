@@ -9,7 +9,7 @@ class BarbeiroTest < ActiveSupport::TestCase
   end
 
   test 'Criando barbeiro com o campo cpf invalido' do
-    barbeiro = Barbeiro.new nome: 'Luiz Gustavo', cpf: '103077jjj15450',
+    barbeiro = Barbeiro.new nome: 'Luiz Gustavo', cpf: '10377715450',
                             data_nascimento: '1999-11-23', telefone: "87977789102",
                             email: 'luizs@teste.com'
     assert_not barbeiro.save
