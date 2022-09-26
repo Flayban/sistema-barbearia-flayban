@@ -29,6 +29,9 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+#ignore all iml files
+*.iml
+
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
