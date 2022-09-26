@@ -10,7 +10,7 @@ class Barbeiro < ApplicationRecord
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def data_nascimento_valida
-    if data_nascimento.present? && data_nascimento > Date.today
+    if data_nascimento.present? && data_nascimento > Time.zone.today
       errors.add(:data, "não pode ser no futuro")
     end
   end
