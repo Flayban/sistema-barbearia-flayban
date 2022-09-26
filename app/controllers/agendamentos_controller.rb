@@ -21,8 +21,12 @@ class AgendamentosController < ApplicationController
 
   # POST /agendamentos or /agendamentos.json
   def create
+    @barbeiro = Barbeiro.find(agendamento_params[:barbeiro_id])
     @cliente = Cliente.find(params[:cliente_id])
     @agendamento = @cliente.agendamentos.create(agendamento_params)
+    @agendamento.fimAtendimento = @agendamento.inicioAtendimento + 30.minutes
+    @cliente.agendamentos << @agendamento
+    @barbeiro.agendamentos << @agendamento
     redirect_to cliente_path(@cliente)
   end
 
