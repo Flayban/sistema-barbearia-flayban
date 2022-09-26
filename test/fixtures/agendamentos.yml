@@ -1,9 +1,2 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  inicioAtendimento: 2022-09-24 19:37:21
-  fimAtendimento: 2022-09-24 19:37:21
-
-two:
-  inicioAtendimento: 2022-09-24 19:37:21
-  fimAtendimento: 2022-09-24 19:37:21
