@@ -6,9 +6,10 @@
   <% @barbeiros.each do |barbeiro| %>
     <%= render barbeiro %>
     <p>
-      <%= link_to "Show this barbeiro", barbeiro %>
+      <button><%= link_to "Show this barbeiro", barbeiro %></button>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New barbeiro", new_barbeiro_path %>
+<button><%= link_to "New barbeiro", new_barbeiro_path %></button>
+<p><button><%= link_to "Inicio", root_path %></button></p>

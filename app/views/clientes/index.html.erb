@@ -6,10 +6,10 @@
   <% @clientes.each do |cliente| %>
     <%= render cliente %>
     <p>
-      <%= link_to "Show this cliente", cliente,id:cliente.telefone %>
+      <button><%= link_to "Show this cliente", cliente %></button>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New cliente", new_cliente_path %>
-
+<button><%= link_to "New cliente", new_cliente_path %></button>
+<p><button><%= link_to "Inicio", root_path %></button></p>
