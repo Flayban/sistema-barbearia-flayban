@@ -47,6 +47,6 @@
 
 <h1>URL do Projeto</h1>
 <h4>
-   <a href = "https://enigmatic-wave-48634.herokuapp.com/">Sistema Barbearia</a>
+   <a href = "https://mighty-woodland-06870.herokuapp.com/">Sistema Barbearia</a>
 </h4>
 
