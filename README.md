@@ -47,6 +47,6 @@
 
 <h1>URL do Projeto</h1>
 <h4>
-   <a href = "https://mighty-woodland-06870.herokuapp.com/">Sistema Barbearia</a>
+   <a href = "https://obscure-taiga-18809.herokuapp.com/">Sistema Barbearia</a>
 </h4>
 
