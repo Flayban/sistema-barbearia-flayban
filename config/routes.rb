@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/new'
-  get 'welcome/creat'
+  get 'welcome/create'
   resources :barbeiros
   resources :clientes do
     resources :agendamentos
