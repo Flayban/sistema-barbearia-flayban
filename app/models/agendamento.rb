@@ -5,7 +5,7 @@ class Agendamento < ApplicationRecord
   validates :cliente_id, :barbeiro_id, :inicioAtendimento, presence: true
   validates :inicioAtendimento, :fimAtendimento, uniqueness: true
 
-  validate :horarioDeAbrir?, :horarioDeAlmoco?, :horarioQueFecha?,
+  validate :horarioDeAbrir?, :horarioDeAlmoco?, :horarioQueFecha?, :dataDeAgendamentoValida
 
     def horarioDeAbrir?
       if !inicioAtendimento.nil? && inicioAtendimento.hour <= 8
@@ -22,6 +22,12 @@ class Agendamento < ApplicationRecord
   def horarioQueFecha?
     if !inicioAtendimento.nil? && inicioAtendimento.hour >= 18
       errors.add :inicioAtendimento, 'Barbearia fechada as 18hrs'
+    end
+  end
+
+  def dataDeAgendamentoValida
+    if inicioAtendimento.present? && inicioAtendimento < Time.zone.today
+      errors.add(:inicioAtendimento, "não pode ser no passado")
     end
   end
 
