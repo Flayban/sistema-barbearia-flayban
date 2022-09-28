@@ -1,96 +1,53 @@
-#Scenario 1
-Given('eu estou na pagina dos clientes') do
-  visit "/clientes"
-  expect(page).to have_current_path("/clientes")
-  click_on 'Show this cliente'
+
+Given('um cliente cadastrado com nome {string}  telefone {string}  email {string} data_nascimento {string} existe') do |nome, telefone, email, data_nascimento|
+  visit '/clientes/new'
+  fill_in 'cliente[nome]', :with => nome
+  fill_in 'cliente[telefone]', :with => telefone
+  fill_in 'cliente[email]', :with => email
+  fill_in 'cliente[data_nascimento]', :with => data_nascimento
+  click_button 'Create Cliente'
 end
 
-
-When('eu crio um agendamento com o barbeiro com nome {string} e o inicioAtendimento {string}') do |barbeiro, inicioAtendimento|
-  fill_in 'consultum[barbeiro]', with => barbeiro
-  fill_in 'consultum[horario]', :with => inicioAtendimento
-
+Then('existe um barbeiro com o nome {string}  cpf {string}  data_nascimento {string}  telefone {string}  email {string}') do |nome, cpf, data_nascimento, telefone, email|
+  visit '/barbeiros/new'
+  fill_in 'barbeiro[nome]', :with => nome
+  fill_in 'barbeiro[cpf]', :with => cpf
+  fill_in 'barbeiro[data_nascimento]', :with => data_nascimento
+  fill_in 'barbeiro[telefone]', :with => telefone
+  fill_in 'barbeiro[email]', :with => email
+  click_button 'Create Barbeiro'
+end
+When('eu estou na pagina do cliente') do
+  visit "/clientes/1"
+  expect(page).to have_current_path("/clientes/1")
 end
 
-When('eu clico em create Agendamento') do
-  click_button 'create Agendamento'
-end
-
-Then('eu vejo uma mensagem de confirmacao do sistema') do
-  expect(page).to have_content('Agendamento was successfully created')
-end
-#Scenario 2
-Given('eu estou na pagina do cliente com o id {string}') do |id|
-  visit "/clientes/#{id}"
-  expect(page).to have_current_path("/clientes/#{id}")
-end
-
-When('eu crio um agendamento com o inicioAtendimento {string}') do |inicioAtendimento|
-  fill_in 'consultum[horario]', :with => inicioAtendimento
-
-end
-
-When('eu clico em create Agendamento') do
-  click_button 'create Agendamento'
-end
-
-Then('eu vejo uma mensagem de erro') do
-  expect(page).to have_content('Expected barbeiro field')
-end
-#Scenario 3
-Given('eu estou na pagina do cliente com o id {string}') do |id|
-  visit "/clientes/#{id}"
-  expect(page).to have_current_path("/clientes/#{id}")
-end
-
-When('eu crio um agendamento com o barbeiro com nome {string} e o inicioAtendimento {string}') do |barbeiro, inicioAtendimento|
-  fill_in 'consultum[barbeiro]', with => barbeiro
-  fill_in 'consultum[horario]', :with => inicioAtendimento
+Then('eu seleciono o barbeiro {string} e o inicioAtendimento {string}') do |barbeiro, inicioAtendimento|
+  select barbeiro, :from => 'agendamento_barbeiro_id'
+  fill_in 'agendamento_inicioAtendimento', with:  inicioAtendimento
 
 end
 
-When('eu clico em create Agendamento') do
-  click_button 'create Agendamento'
-end
-
-Then('eu vejo uma mensagem de erro') do
-  expect(page).to have_content('A barbearia ainda nao abriu!')
-end
-#Scenario 4
-Given('eu estou na pagina do cliente com o id {string}') do |id|
-  visit "/clientes/#{id}"
-  expect(page).to have_current_path("/clientes/#{id}")
-end
-
-When('eu crio um agendamento com o barbeiro com nome {string} e o inicioAtendimento {string}') do |barbeiro, inicioAtendimento|
-  fill_in 'consultum[barbeiro]', with => barbeiro
-  fill_in 'consultum[horario]', :with => inicioAtendimento
+When('eu clico em Create Agendamento') do
+  click_on 'Create Agendamento'
 
 end
 
-When('eu clico em create Agendamento') do
-  click_button 'create Agendamento'
+Then('eu vejo uma mensagem de confirmacao do sistema {string}') do |text|
+  page.has_text?(text)
 end
 
-Then('eu vejo uma mensagem de erro') do
-  expect(page).to have_content('A barbearia esta fechada para o almoco!')
-end
-#Scenario 5
-Given('eu estou na pagina do cliente com o id {string}') do |id|
-  visit "/clientes/#{id}"
-  expect(page).to have_current_path("/clientes/#{id}")
-end
 
-When('eu crio um agendamento com o barbeiro com nome {string} e o inicioAtendimento {string}') do |barbeiro, inicioAtendimento|
-  fill_in 'consultum[barbeiro]', with => barbeiro
-  fill_in 'consultum[horario]', :with => inicioAtendimento
+Then('eu seleciono o inicioAtendimento {string}') do |inicioAtendimento|
+  fill_in 'agendamento_inicioAtendimento', with:  inicioAtendimento
 
 end
 
-When('eu clico em create Agendamento') do
-  click_button 'create Agendamento'
-end
+When('eu clico no Create Agendamento') do
 
-Then('eu vejo uma mensagem de confirmacao do sistema') do
-  expect(page).to have_content('A barbearia ja esta fechada!')
+  page.should_not have_content('agendamento_barbeiro_id')
+
+end
+Then('eu vejo uma mensagem de erro {string}') do |text|
+  page.has_text?(text)
 end
