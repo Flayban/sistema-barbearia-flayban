@@ -1,5 +1,4 @@
-<a href="https://www.codacy.com/gh/tizeiros/sistema-barbearia/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tizeiros/sistema-barbearia&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/e141b0b662dc4b02b7153ed3bb471c23"/></a>
-<div align="center"> 
+<a href="https://www.codacy.com/gh/BarberES/sistema-barbearia/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tizeiros/sistema-barbearia&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/e141b0b662dc4b02b7153ed3bb471c23"/></a>
 
 <h1>Sistema de Gerenciamento de Barbearia</h1>
 <img src="https://i.imgur.com/BNIn4FV.jpg"/>
