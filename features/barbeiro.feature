@@ -19,8 +19,8 @@ Feature: Barbeiro
 
   Scenario: editar informacoes do barbeiro
     Given estou na pagina do barbeiro
-    And o barbeiro com cpf '10307715450' existe
-    And eu clico em mostrar o barbeiro com cpf '10307715450'
+    And o barbeiro com cpf '79416915076' existe
+    And eu clico em mostrar o barbeiro com cpf '79416915076'
     And eu clico em editar o cadastro do barbeiro
     When eu preencho os dados nome 'Eduarda Interaminense'  cpf '98422419041'  data_nascimento '2000-03-22'  telefone '87991187654'  email 'eduarda@test.com'
     And eu clico no botao de atualizar barbeiro
