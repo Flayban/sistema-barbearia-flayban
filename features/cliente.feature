@@ -19,10 +19,10 @@ Feature: Cliente
 
   Scenario: editar informacoes do cliente
     Given estou na pagina do cliente
-    And o cliente com telefone '11743717984' existe
-    And eu clico em mostrar o cliente com telefone '11743717984'
+    And o cliente com telefone '81635395518' existe
+    And eu clico em mostrar o cliente com telefone '81635395518'
     And eu clico em editar o cadastro do cliente
-    When eu preencho os dados nome 'Jose Antonio'  telefone '11139290656'  email 'joseantonio.567@hotmail.com' data_nascimento '21-02-1998'
+    When eu preencho os dados nome 'Jose Antonio'  telefone '81210317130'  email 'joseantonio.567@hotmail.com' data_nascimento '21-02-1998'
     And eu clico no botao de atualizar cliente
     Then eu vejo a mensagem de que o cliente foi atualizado com sucesso
 
