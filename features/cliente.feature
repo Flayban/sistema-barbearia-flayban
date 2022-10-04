@@ -6,7 +6,7 @@ Feature: Cliente
   Scenario: cadastrar novo  cliente
     Given estou na pagina do cliente
     And eu clico em criar novo cliente
-    When eu preencho os dados nome 'Luiz Gustavo'  telefone '11743717984'  email 'martins.567@hotmai.com' data_nascimento '19-04-1999'
+    When eu preencho os dados nome 'Luiz Gustavo'  telefone '11743717984'  email 'josias.567@hotmai.com' data_nascimento '19-04-1999'
     And eu clico no botao de criar cliente
     Then eu vejo a mensagem de que o cliente foi criado com sucesso
 
@@ -28,8 +28,8 @@ Feature: Cliente
 
   Scenario: remover cliente
     Given estou na pagina do cliente
-    And o cliente com telefone ‘87988570311’ existe
-    And eu clico em mostrar o cliente com telefone '87988570311'
+    And o cliente com telefone ‘11668706077’ existe
+    And eu clico em mostrar o cliente com telefone '11668706077'
     When eu clico em remover o cliente
     Then eu vejo a mensagem de que o cliente foi apagado com sucesso
 

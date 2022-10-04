@@ -28,13 +28,13 @@ Feature: Barbeiro
 
   Scenario: remover barbeiro
     Given estou na pagina do barbeiro
-    And o barbeiro com cpf ‘98422419041’ existe
-    And clico em mostrar o barbeiro com cpf '98422419041'
+    And o barbeiro com cpf ‘66018383063’ existe
+    And eu clico em mostrar o barbeiro com cpf '66018383063'
     When eu clico em remover o barbeiro
     Then eu vejo a mensagem de que o barbeiro foi apagado com sucesso
 
   Scenario: visualizar informacoes do barbeiro
     Given estou na pagina do barbeiro
-    And o barbeiro com cpf '98422419041' existe
-    And eu clico em mostrar o barbeiro com cpf '98422419041'
-    Then eu vejo a todas informacoes do barbeiro com cpf '98422419041'
+    And o barbeiro com cpf '47033406070' existe
+    And eu clico em mostrar o barbeiro com cpf '47033406070'
+    Then eu vejo a todas informacoes do barbeiro com cpf '47033406070'
