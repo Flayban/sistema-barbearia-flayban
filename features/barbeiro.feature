@@ -29,7 +29,7 @@ Feature: Barbeiro
   Scenario: remover barbeiro
     Given estou na pagina do barbeiro
     And o barbeiro com cpf ‘98422419041’ existe
-    And eu clico em mostrar o barbeiro com cpf '98422419041'
+    And clico em mostrar o barbeiro com cpf '98422419041'
     When eu clico em remover o barbeiro
     Then eu vejo a mensagem de que o barbeiro foi apagado com sucesso
 
