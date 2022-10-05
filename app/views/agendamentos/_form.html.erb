@@ -20,6 +20,10 @@
   </div>
 
   <div>
+    <%= collection_select(:agendamento, :service_id, Service.all, :id, :nome , { prompt: "Selecionar Serviço"}) %>
+  </div>
+
+  <div>
     <%= form.label :inicioAtendimento, style: "display: block" %>
     <%= form.datetime_field :inicioAtendimento %>
   </div>
