@@ -1,11 +1,1 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  nome: MyString
-  valor: MyString
-  tempo: MyString
-
-two:
-  nome: MyString
-  valor: MyString
-  tempo: MyString
