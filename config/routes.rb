@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :services
   get 'welcome/index'
   get 'welcome/new'
   get 'welcome/create'
