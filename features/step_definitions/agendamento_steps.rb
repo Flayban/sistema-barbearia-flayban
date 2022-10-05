@@ -17,9 +17,10 @@ Then('existe um barbeiro com o nome {string}  cpf {string}  data_nascimento {str
   fill_in 'barbeiro[email]', :with => email
   click_button 'Create Barbeiro'
 end
-When('eu estou na pagina do cliente') do
-  visit "/clientes/1"
-  expect(page).to have_current_path("/clientes/1")
+When('eu estou na pagina de clientes e aperto no cliente com nome {string}') do |nome|
+  visit "/clientes"
+  cliente = Cliente.find_by nome: nome
+  visit "/clientes/" + cliente.id.to_s
 end
 
 Then('eu seleciono o barbeiro {string} e o inicioAtendimento {string}') do |barbeiro, inicioAtendimento|
