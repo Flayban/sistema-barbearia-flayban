@@ -2,7 +2,7 @@ class Agendamento < ApplicationRecord
   belongs_to :barbeiro
   belongs_to :cliente
   belongs_to :service
-  validates :cliente_id, :barbeiro_id, :inicioAtendimento, presence: true
+  validates :cliente_id, :barbeiro_id, :service_id, :inicioAtendimento, presence: true
   validates :inicioAtendimento, :fimAtendimento, uniqueness: true
 
   validate :horarioDeAbrir?, :horarioDeAlmoco?, :horarioQueFecha?, :dataDeAgendamentoValida
