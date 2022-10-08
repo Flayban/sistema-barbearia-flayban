@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_cliente!
   # GET /clientes or /clientes.json
   def index
     @clientes = Cliente.all
@@ -27,6 +27,7 @@ class ClientesController < ApplicationController
       if @cliente.save
         format.html { redirect_to cliente_url(@cliente), notice: "Cliente was successfully created." }
         format.json { render :show, status: :created, location: @cliente }
+        sign_up(@cliente)
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
@@ -65,6 +66,6 @@ class ClientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-      params.require(:cliente).permit(:nome, :telefone, :email, :data_nascimento)
+      params.require(:cliente).permit(:nome, :telefone, :data_nascimento, :email, :password, :password_confirmation)
     end
 end
