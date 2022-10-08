@@ -3,7 +3,7 @@ class CreateClientes < ActiveRecord::Migration[7.0]
     create_table :clientes do |t|
       t.string :nome
       t.string :telefone
-      t.string :email
+      #t.string :email
       t.date :data_nascimento
 
       t.timestamps
