@@ -15,8 +15,8 @@
     <button type="button"><%= link_to "Barbeiros", barbeiros_path %></button>
   <%else %>
     <button type="button"><%= link_to "Área de Clientes", new_cliente_session_path%></button>
-    <button type="button"><%= link_to "Área de Barbeiros", barbeiros_path %></button>
+    <button type="button"><%= link_to "Área de Barbeiros", new_barbeiro_session_path %></button>
     <button type="button"><%= link_to "Área do Admin", new_admin_session_path%></button>
   <%end %>
-
+  
 </div>
