@@ -1,6 +1,13 @@
 class BarbeirosController < ApplicationController
   before_action :set_barbeiro, only: %i[ show edit update destroy ]
-  before_action :authenticate_barbeiro!
+  before_action :require_login
+
+  def require_login
+    unless admin_signed_in? or barbeiro_signed_in?
+      redirect_to barbeiros_path
+    end
+  end
+
   # GET /barbeiros or /barbeiros.json
   def index
     @barbeiros = Barbeiro.all

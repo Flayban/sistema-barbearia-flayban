@@ -1,6 +1,13 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: %i[ show edit update destroy ]
-  before_action :authenticate_cliente!
+  before_action :require_login
+
+  def require_login
+    unless admin_signed_in? or cliente_signed_in?
+      redirect_to clientes_path
+    end
+  end
+
   # GET /clientes or /clientes.json
   def index
     @clientes = Cliente.all
