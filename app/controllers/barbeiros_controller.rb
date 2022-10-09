@@ -1,6 +1,6 @@
 class BarbeirosController < ApplicationController
   before_action :set_barbeiro, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_barbeiro!
   # GET /barbeiros or /barbeiros.json
   def index
     @barbeiros = Barbeiro.all
@@ -65,6 +65,6 @@ class BarbeirosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def barbeiro_params
-      params.require(:barbeiro).permit(:nome, :cpf, :data_nascimento, :telefone, :email)
+      params.require(:barbeiro).permit(:nome, :telefone, :data_nascimento, :email, :password, :password_confirmation)
     end
 end

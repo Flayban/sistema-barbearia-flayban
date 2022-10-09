@@ -14,7 +14,12 @@
     <h6 class="pr-5"><%=current_cliente.nome%> - Cliente</h6>
     <%= button_to "Sair", destroy_cliente_session_path, method: :delete %>
     <%= link_to "Editar",edit_cliente_registration_path,class: "navbar-brand"  %>
+  <%elsif barbeiro_signed_in? %>
+    <h6 class="pr-5"><%=current_barbeiro.nome%> - Barbeiro</h6>
+    <%= button_to "Sair", destroy_barbeiro_session_path, method: :delete %>
+    <%= link_to "Editar",edit_barbeiro_registration_path,class: "navbar-brand"  %>
   <%end %>
+
   <p><button><%= link_to "Inicio", root_path %></button></p>
     <%= yield %>
   </body>

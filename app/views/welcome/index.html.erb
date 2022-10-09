@@ -6,8 +6,12 @@
   <%if cliente_signed_in? %>
     <h6 class="pr-5"><%=current_cliente.nome%> - Cliente</h6>
     <button type="button"><%= link_to "Agendamento", current_cliente %></button>
+  <%elsif barbeiro_signed_in?%>
+    <h6 class="pr-5"><%=current_barbeiro.nome%> - Barbeiro</h6>
+    <button type="button"><%= link_to "Agenda", current_barbeiro %></button>
   <%else %>
     <button type="button"><%= link_to "Área de Clientes", new_cliente_session_path%></button>
     <button type="button"><%= link_to "Área de Barbeiros", barbeiros_path %></button>
   <%end %>
+
 </div>
