@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin!
 
   # GET /admins or /admins.json
   def index
@@ -65,6 +66,6 @@ class AdminsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_params
-      params.require(:admin).permit(:nome, :telefone, :data_nascimento)
+      params.require(:admin).permit(:nome, :telefone, :data_nascimento,:email, :password, :password_confirmation)
     end
 end

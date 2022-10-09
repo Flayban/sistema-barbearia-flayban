@@ -9,9 +9,14 @@
   <%elsif barbeiro_signed_in?%>
     <h6 class="pr-5"><%=current_barbeiro.nome%> - Barbeiro</h6>
     <button type="button"><%= link_to "Agenda", current_barbeiro %></button>
+  <%elsif admin_signed_in?%>
+    <h6 class="pr-5"><%=current_admin.nome%> - Admin</h6>
+    <button type="button"><%= link_to "Clientes", clientes_path %></button>
+    <button type="button"><%= link_to "Barbeiros", barbeiros_path %></button>
   <%else %>
     <button type="button"><%= link_to "Área de Clientes", new_cliente_session_path%></button>
     <button type="button"><%= link_to "Área de Barbeiros", barbeiros_path %></button>
+    <button type="button"><%= link_to "Área do Admin", new_admin_session_path%></button>
   <%end %>
 
 </div>
