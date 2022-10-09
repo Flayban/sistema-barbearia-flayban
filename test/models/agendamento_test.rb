@@ -9,7 +9,10 @@ class AgendamentoTest < ActiveSupport::TestCase
                             email: "barbeiro@email.com")
     assert barbeiro.save
 
-    agendamento = Agendamento.new(inicioAtendimento: "14:00", cliente_id: cliente.id, barbeiro_id: barbeiro.id)
+    service = Service.new nome:"Corte de cabelo", valor:"10,00", tempo: "30"
+    assert service.save
+
+    agendamento = Agendamento.new(inicioAtendimento: "14:00", cliente_id: cliente.id, barbeiro_id: barbeiro.id, service_id: service.id)
 
     assert agendamento.save
   end
@@ -22,7 +25,10 @@ class AgendamentoTest < ActiveSupport::TestCase
                             email: "barbeiro@email.com")
     assert barbeiro.save
 
-    agendamento = Agendamento.new(inicioAtendimento: "12:00", cliente_id: cliente.id, barbeiro_id: barbeiro.id)
+    service = Service.new nome:"Corte de cabelo e barba", valor:"25,00", tempo: "30"
+    assert service.save
+
+    agendamento = Agendamento.new(inicioAtendimento: "12:00", cliente_id: cliente.id, barbeiro_id: barbeiro.id, service_id: service.id)
 
     assert_not agendamento.save
   end
@@ -35,7 +41,10 @@ class AgendamentoTest < ActiveSupport::TestCase
                             email: "barbeiro@email.com")
     assert barbeiro.save
 
-    agendamento = Agendamento.new(inicioAtendimento: "23:00", cliente_id: cliente.id, barbeiro_id: barbeiro.id)
+    service = Service.new nome:"Corte apenas de cabelo", valor:"10,00", tempo: "30"
+    assert service.save
+
+    agendamento = Agendamento.new(inicioAtendimento: "23:00", cliente_id: cliente.id, barbeiro_id: barbeiro.id, service_id: service.id)
 
     assert_not agendamento.save
   end
