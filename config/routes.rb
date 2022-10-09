@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  resources :admins
   devise_for :barbeiros
   get 'sessions/new'
   devise_for :clientes
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
     get 'clientes/sign_up' => 'devise/registrations#new'
     post 'clientes/sign_out' => 'devise/sessions#destroy'
   end
+
   # Defines the root path route ("/")
   # root "articles#index"
   root "welcome#index"
