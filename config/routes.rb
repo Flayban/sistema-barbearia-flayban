@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     get 'clientes/sign_up' => 'devise/registrations#new'
     post 'clientes/sign_out' => 'devise/sessions#destroy'
   end
-
   # Defines the root path route ("/")
   # root "articles#index"
   root "welcome#index"

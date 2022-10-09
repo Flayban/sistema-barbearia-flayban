@@ -13,6 +13,7 @@
     <h6 class="pr-5"><%=current_admin.nome%> - Admin</h6>
     <button type="button"><%= link_to "Clientes", clientes_path %></button>
     <button type="button"><%= link_to "Barbeiros", barbeiros_path %></button>
+    <button type="button"><%= link_to "Serviços", services_path %></button>
   <%else %>
     <button type="button"><%= link_to "Área de Clientes", new_cliente_session_path%></button>
     <button type="button"><%= link_to "Área de Barbeiros", new_barbeiro_session_path %></button>
