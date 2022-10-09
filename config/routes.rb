@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :barbeiros
   get 'sessions/new'
   devise_for :clientes
   resources :services
