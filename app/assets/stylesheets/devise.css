@@ -1,0 +1,70 @@
+body{
+    background-color:#EFEFEF;
+
+    height:100vh;
+    width:100vw;
+}
+
+.barberContainer{
+    width:42px;
+    height:153px;
+    position:absolute;
+    top:60%;
+    left:50%;
+    transform:translate(-20%,-50%);
+}
+
+.ball{
+    height:11px;
+    width:11px;
+    margin-left:16px;
+    margin-right:16px;
+    border-radius:50px;
+    background-color:#000000;
+}
+
+.endCap{
+    width:27px;
+    height:8px;
+    margin-left:8px;
+    margin-right:8px;
+    margin-top:3px;
+    margin-bottom:3px;
+    background-color:#000000;
+}
+
+.cap{
+    width:42px;
+    height:8px;
+    background-color:#000000;
+}
+
+.barberWrap{
+    height:86px;
+    width:27px;
+
+    margin-top:3px;
+    margin-bottom:3px;
+    margin-left:8px;
+    margin-right:8px;
+}
+
+.barber{
+    height:86px;
+    width:27px;
+    position: inherit;
+    background:#000000;
+    background-color: -webkit-linear-gradient(-45deg, transparent 25%, #000000 25%, #000000 50%, transparent 50%, transparent 75%, #000000 75%);
+    background: -moz-linear-gradient(-45deg, transparent 25%, #000000 25%, #000000 50%, transparent 50%, transparent 75%, #000000 75%);
+    background: -o-linear-gradient(-45deg, transparent 25%, #000000 25%, #000000 50%, transparent 50%, transparent 75%, #000000 75%);
+    background: linear-gradient(-45deg, transparent 25%, #000000 25%, #000000 50%, transparent 50%, transparent 75%, #000000 75%);
+    background-size: 14px 14px;
+    -webkit-animation: barberpole 1.5s infinite linear;
+    animation: barberpole 1.5s infinite linear;
+}
+
+@-webkit-keyframes barberpole {
+    from {background-position: 0%;}
+    to {background-position: 100%;}
+}
+
