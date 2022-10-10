@@ -1,5 +1,12 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
+  before_action :require_login
+
+  def require_login
+    unless admin_signed_in?
+      redirect_to services_path
+    end
+  end
 
   # GET /services or /services.json
   def index

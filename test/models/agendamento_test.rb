@@ -2,11 +2,12 @@ require "test_helper"
 
 class AgendamentoTest < ActiveSupport::TestCase
   test "criar agendamento valido" do
-    cliente = Cliente.new(nome:"Jucas", telefone:"08740028922", email: "email@email.com", data_nascimento: "09/02/1997")
+    cliente = Cliente.new(nome:"Jucas", telefone:"08740028922", data_nascimento: "09/02/1997",
+                          email: "email@email.com", password:"622612")
     assert cliente.save
 
-    barbeiro = Barbeiro.new(nome: "Indigo", cpf: "27071571040", data_nascimento: "02/07/1990", telefone: "08734568901",
-                            email: "barbeiro@email.com")
+    barbeiro = Barbeiro.new(nome: "Indigo", telefone: "08734568901", data_nascimento: "02/07/1990",
+                            email: "barbeiro@email.com", password:"655622")
     assert barbeiro.save
 
     service = Service.new nome:"Corte de cabelo", valor:"10,00", tempo: "30"
@@ -18,11 +19,12 @@ class AgendamentoTest < ActiveSupport::TestCase
   end
 
   test "criar agendamento no horario de almoco" do
-    cliente = Cliente.new(nome:"Jucas", telefone:"08740028922", email: "email@email.com", data_nascimento: "09/02/1997")
+    cliente = Cliente.new(nome:"Jucas", telefone:"08740028922", data_nascimento: "09/02/1997",
+                          email: "email@email.com", password:"655611")
     assert cliente.save
 
-    barbeiro = Barbeiro.new(nome: "Indigo", cpf: "27071571040", data_nascimento: "02/07/1990", telefone: "08734568901",
-                            email: "barbeiro@email.com")
+    barbeiro = Barbeiro.new(nome: "Indigo", telefone: "08734568901", data_nascimento: "02/07/1990",
+                            email: "barbeiro@email.com", password:"611612")
     assert barbeiro.save
 
     service = Service.new nome:"Corte de cabelo e barba", valor:"25,00", tempo: "30"
@@ -34,11 +36,12 @@ class AgendamentoTest < ActiveSupport::TestCase
   end
 
   test "criar agendamento apos o fechamento" do
-    cliente = Cliente.new(nome:"Jucas", telefone:"08740028922", email: "email@email.com", data_nascimento: "09/02/1997")
+    cliente = Cliente.new(nome:"Jucas", telefone:"08740028922", data_nascimento: "09/02/1997",
+                          email: "email@email.com", password:"655600")
     assert cliente.save
 
-    barbeiro = Barbeiro.new(nome: "Indigo", cpf: "27071571040", data_nascimento: "02/07/1990", telefone: "08734568901",
-                            email: "barbeiro@email.com")
+    barbeiro = Barbeiro.new(nome: "Indigo", telefone: "08734568901", data_nascimento: "02/07/1990",
+                            email: "barbeiro@email.com", password:"600612")
     assert barbeiro.save
 
     service = Service.new nome:"Corte apenas de cabelo", valor:"10,00", tempo: "30"
