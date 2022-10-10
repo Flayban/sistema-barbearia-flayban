@@ -21,5 +21,4 @@ button:hover {
   transform: translateY(-2px);
 }
 
-button:active {
-  transform: translateY(3px); }
+button:active { transform: translateY(3px);}
