@@ -4,37 +4,31 @@ Feature: Barbeiro
   So that eu nao tenho que fazer isso de forma manual ou presencial
 
   Scenario: cadastrar novo  barbeiro
-    Given estou na pagina do barbeiro
-    And eu clico em criar novo barbeiro
-    When eu preencho os dados nome 'Douglas Filipe'  cpf '10307715450'  data_nascimento '1996-09-01'  telefone '87996789102'  email 'douglas@test.com'
-    And eu clico no botao de criar barbeiro
-    Then eu vejo a mensagem de que o barbeiro foi criado com sucesso
+    Given estou na pagina para criar um barbeiro
+    When eu preencho os dados de nome 'Alane Jessany' telefone '87996780000' data_nascimento '1996-09-01' email 'alane@test.com' password 'barbeiroteste'
+    And eu clico no botão Sign up
+    Then eu vejo a pagina inicial do barbeiro
 
-  Scenario: cadastrar novo barbeiro com cpf invalido
-    Given estou na pagina do barbeiro
-    And eu clico em criar novo barbeiro
-    When eu preencho os dados nome 'Douglas Filipe'  cpf '10307715455'  data_nascimento '1996-09-01'  telefone '87996789102'  email 'douglas@test.com'
-    And eu clico no botao de criar barbeiro
-    Then eu vejo a mensagem de que o cpf do barbeiro e invalido
+  Scenario: cadastrar novo barbeiro com telefone invalido
+    Given estou na pagina para criar um barbeiro
+    When eu preencho os dados de nome 'Alane Jessany' telefone 'teste' data_nascimento '1996-09-01' email 'alane@test.com' password 'barbeiroteste'
+    And eu clico no botão Sign up
+    Then eu vejo a mensagem de que o telefone do barbeiro e invalido
 
-  Scenario: editar informacoes do barbeiro
-    Given estou na pagina do barbeiro
-    And o barbeiro com cpf '79416915076' existe
-    And eu clico em mostrar o barbeiro com cpf '79416915076'
-    And eu clico em editar o cadastro do barbeiro
-    When eu preencho os dados nome 'Eduarda Interaminense'  cpf '98422419041'  data_nascimento '2000-03-22'  telefone '87991187654'  email 'eduarda@test.com'
-    And eu clico no botao de atualizar barbeiro
-    Then eu vejo a mensagem de que o barbeiro foi atualizado com sucesso
+  Scenario: Realizar login no sistema como um barbeiro
+    Given estou na pagina de login do barbeiro
+    When entao eu preencho os campos de login com o email 'alane@test.com' password 'barbeiroteste'
+    And  clico no botao Log in
+    Then eu vejo a pagina inicial dos clientes
 
-  Scenario: remover barbeiro
-    Given estou na pagina do barbeiro
-    And o barbeiro com cpf ‘66018383063’ existe
-    And eu clico em mostrar o barbeiro com cpf '66018383063'
-    When eu clico em remover o barbeiro
-    Then eu vejo a mensagem de que o barbeiro foi apagado com sucesso
+  Scenario: criar barbeiro com senha menor que o esperado
+    Given estou na pagina para criar um barbeiro
+    When eu preencho os dados de nome 'Alane Jessany' telefone '87996789144' data_nascimento '1996-09-01' email 'alane@test.com' password 'test'
+    And eu clico no botão Sign up
+    Then eu vejo a mensagem que a senha e muito pequena
 
-  Scenario: visualizar informacoes do barbeiro
-    Given estou na pagina do barbeiro
-    And o barbeiro com cpf '47033406070' existe
-    And eu clico em mostrar o barbeiro com cpf '47033406070'
-    Then eu vejo a todas informacoes do barbeiro com cpf '47033406070'
+  Scenario: criar barbeiro com data de nascimento em branco
+    Given estou na pagina para criar um barbeiro
+    When eu preencho os dados de nome 'Alane Jessany' telefone '87996789144' data_nascimento '' email 'alane@test.com' password 'barbeiroteste'
+    And eu clico no botão Sign up
+    Then eu vejo a mensagem que a data de nascimento esta invalida
