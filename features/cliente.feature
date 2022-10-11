@@ -3,38 +3,32 @@ Feature: Cliente
   I want to adicionar, remover visualizar e editar meu cadastro
   So that eu nao tenho que fazer isso de forma manual ou presencial
 
-  Scenario: cadastrar novo  cliente
-    Given estou na pagina do cliente
-    And eu clico em criar novo cliente
-    When eu preencho os dados nome 'Luiz Gustavo'  telefone '11743717984'  email 'josias.567@hotmai.com' data_nascimento '19-04-1999'
-    And eu clico no botao de criar cliente
-    Then eu vejo a mensagem de que o cliente foi criado com sucesso
+  Scenario: cadastrar novo cliente
+    Given estou na pagina para criar um cliente
+    When eu preencho os dados nome 'Luiz Gustavo'  telefone '11743717984' data_nascimento '19-04-1999' email 'josias.567@hotmai.com'  password '13131313'
+    And entao eu clico no botão Sign up
+    Then eu vejo a pagina inicial dos clientes
 
   Scenario: cadastrar novo cliente com email invalido
-    Given estou na pagina do cliente
-    And eu clico em criar novo cliente
-    When eu preencho os dados nome 'Luiz Gustavo'  telefone '87981370311'  email 'martins.567@.com' data_nascimento '19-04-1999'
-    And eu clico no botao de criar cliente
-    Then eu vejo a mensagem de que o email do cliente e invalido
+    Given estou na pagina para criar um cliente
+    When eu preencho os dados nome 'Luiz Gustavo'  telefone '11743717984' data_nascimento '19-04-1999' email 'josias.567'  password '13131313'
+    And entao eu clico no botão Sign up
+    Then eu vejo a mensagem que deve existir um @ no endereco de email
 
-  Scenario: editar informacoes do cliente
-    Given estou na pagina do cliente
-    And o cliente com telefone '87991272314' existe
-    And eu clico em mostrar o cliente com telefone '87991272314'
-    And eu clico em editar o cadastro do cliente
-    When eu preencho os dados nome 'Jose Antonio'  telefone '87991095555'  email 'joseantonio.567@hotmail.com' data_nascimento '21-02-1998'
-    And eu clico no botao de atualizar cliente
-    Then eu vejo a mensagem de que o cliente foi atualizado com sucesso
+  Scenario: Realizar login no sistema como um cliente
+    Given estou na pagina de login do cliente
+    When entao eu preencho os campos de email 'luiz@cliente.com' password '13131313'
+    And  clico no botao Log in
+    Then eu vejo a pagina inicial dos clientes
 
-  Scenario: remover cliente
-    Given estou na pagina do cliente
-    And o cliente com telefone ‘11668706077’ existe
-    And eu clico em mostrar o cliente com telefone '11668706077'
-    When eu clico em remover o cliente
-    Then eu vejo a mensagem de que o cliente foi apagado com sucesso
+  Scenario: criar cliente com senha menor que o esperado
+    Given estou na pagina para criar um cliente
+    When eu preencho os dados nome 'Luis Gustavo'  telefone '11743757984' data_nascimento '19-04-1999' email 'luiz.@cliente.com'  password '1313'
+    And entao eu clico no botão Sign up
+    Then eu vejo a mensagem que a senha e muito pequena
 
-  Scenario: visualizar informacoes do cliente
-    Given estou na pagina do cliente
-    And o cliente com telefone '87991095553' existe
-    And eu clico em mostrar o cliente com telefone '87991095553'
-    Then eu vejo a todas informacoes do cliente com telefone '87991095553'
+  Scenario: criar cliente com data de nascimento no futuro
+    Given estou na pagina para criar um cliente
+    When eu preencho os dados nome 'Kleber'  telefone '87991534509' data_nascimento '19-04-2032' email 'luiz13@cliente.com'  password '131313'
+    And entao eu clico no botão Sign up
+    Then eu vejo a mensagem que a data de nascimento e invalida
