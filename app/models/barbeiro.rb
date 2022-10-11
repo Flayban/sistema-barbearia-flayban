@@ -10,6 +10,7 @@ class Barbeiro < ApplicationRecord
             format: { with: /\A[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+\z/}
   # validate :cpf_valido
   validate :data_nascimento_valida
+  validates :data_nascimento, presence: true
   validates :telefone, presence: true, numericality: true, length: { is: 11 }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
@@ -19,9 +20,8 @@ class Barbeiro < ApplicationRecord
     end
   end
 
-  def cpf_valido
-    if cpf.present? && !CPF.valid?(cpf)
-      errors.add(:cpf, "formato ou numero errado")
-    end
-  end
+  ##def cpf_valido
+  ##if cpf.present? && !CPF.valid?(cpf)
+  ####end
+  ##end
 end

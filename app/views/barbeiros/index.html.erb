@@ -6,7 +6,7 @@
   <% @barbeiros.each do |barbeiro| %>
     <%= render barbeiro %>
     <p>
-      <button><%= link_to "Show this barbeiro", barbeiro,id:barbeiro %></button>
+      <button><%= link_to "Show this barbeiro", barbeiro,id:barbeiro.telefone %></button>
     </p>
   <% end %>
 </div>
