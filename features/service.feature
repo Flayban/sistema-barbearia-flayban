@@ -10,12 +10,14 @@ Feature: service
     And clico em criar servico
     Then eu vejo a mensagem 'cadastro bem sucedido'
 
-  Scenario: Adicionar um Servico com valor invalido
+  Scenario: Editar um servico
     Given estou logado como administrador com o email 'admin@admin.com' e senha '123456'
-    And estou na tela de criar um servico
-    Then eu preencho os campos de nome 'Corte e barba' valor '2' e tempo '30'
-    And clico em criar servico
-    Then eu vejo a mensagem 'valor invalido'
+    And existe um servico com nome de 'Corte'
+    And eu clico em mostrar o servico com nome de 'Corte'
+    And eu clico em editar as informacoes do servico
+    When eu preencho os campos de nome 'Corte e barba' valor '25,00' e tempo '30'
+    And clico em editar servico
+    Then eu vejo a mensagem 'Servico atualizado com sucesso'
 
   Scenario: Adicionar um Servico com tempo invalido
     Given estou logado como administrador com o email 'admin@admin.com' e senha '123456'
@@ -31,7 +33,7 @@ Feature: service
     And clico no botao criar servico
     Then eu vejo a mensagem 'necessario preencher o campo de nome'
 
-  Scenario: Adicionar um Servico sem nome
+  Scenario: Adicionar um Servico sem valor
     Given estou logado como administrador com o email 'admin@admin.com' e senha '123456'
     And estou na tela de criar um servico
     Then eu preencho os campos de nome 'Corte e barba' e tempo '3'

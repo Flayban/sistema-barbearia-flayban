@@ -25,6 +25,28 @@ Then('eu vejo a mensagem {string}') do |text|
 
 end
 
+Given('existe um servico com nome de {string}') do |nome|
+  visit '/services/new'
+  fill_in 'service[nome]', :with => nome
+  fill_in 'service[valor]', :with => '12,00'
+  fill_in 'service[tempo]', :with => '30'
+  expect(page).to have_content(nome)
+  visit '/services/'
+  expect(page).to have_current_path(/services/)
+end
+
+Given('eu clico em mostrar o servico com nome de {string}') do |nome|
+  click_on "#{nome}"
+end
+
+Given('eu clico em editar as informacoes do servico') do
+  click_on 'Edit this service'
+end
+
+When('clico em editar servico') do
+  click_on 'Update Service'
+end
+
 Then('eu preencho os campos de valor {string} e tempo {string}') do |valor ,tempo|
   fill_in 'service[valor]', :with => valor
   fill_in 'service[tempo]', :with => tempo
