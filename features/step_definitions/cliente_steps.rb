@@ -1,93 +1,57 @@
 #primeiro cenário
-Given('estou na pagina do cliente') do
-  visit '/clientes/'
-  expect(page).to have_current_path('/clientes/')
+Given('estou na pagina para criar um cliente') do
+  visit '/clientes/sign_up'
+  expect(page).to have_current_path('/clientes/sign_up')
 end
 
-Given('eu clico em criar novo cliente') do
-  click_on 'New cliente'
-end
-
-When('eu preencho os dados nome {string}  telefone {string}  email {string} data_nascimento {string}') do |nome, telefone, email, data_nascimento|
+When('eu preencho os dados nome {string}  telefone {string} data_nascimento {string} email {string}  password {string}') do |nome, telefone, data_nascimento, email, senha|
   fill_in 'cliente[nome]', :with => nome
   fill_in 'cliente[telefone]', :with => telefone
-  fill_in 'cliente[email]', :with => email
   fill_in 'cliente[data_nascimento]', :with => data_nascimento
+  fill_in 'cliente[email]', :with => email
+  fill_in 'cliente[password]', :with => senha
+  fill_in 'cliente[password_confirmation]', :with => senha
 end
 
-When('eu clico no botao de criar cliente') do
-  click_button 'Create Cliente'
+When('entao eu clico no botão Sign up') do
+  click_button 'Sign up'
 end
 
-Then('eu vejo a mensagem de que o cliente foi criado com sucesso') do
-  expect(page).to have_content('Cliente was successfully created')
+Then('eu vejo a pagina inicial dos clientes') do
+  visit '/'
+  expect(page).to have_current_path('/')
 end
 
 #segundo cenário
 
-Then('eu vejo a mensagem de que o email do cliente e invalido') do
+Then('eu vejo a mensagem que deve existir um @ no endereco de email') do
   expect(page).to have_content('Email is invalid')
 end
 
 #terceiro cenário
-Given('o cliente com telefone {string} existe') do |telefone|
-  visit '/clientes/new'
-  fill_in 'cliente[nome]', :with => 'Augusto Cesar'
-  fill_in 'cliente[telefone]', :with => telefone
-  fill_in 'cliente[email]', :with => 'cesar.567@hotmail.com'
-  fill_in 'cliente[data_nascimento]', :with => '21/04/1981'
-  click_on 'Create Cliente'
-  expect(page).to have_content(telefone)
-  visit '/clientes/'
-  expect(page).to have_current_path(/clientes/)
-
+Given('estou na pagina de login do cliente') do
+  visit '/clientes/sign_in'
+  expect(page).to have_current_path('/clientes/sign_in')
 end
 
-Given('eu clico em mostrar o cliente com telefone {string}') do |telefone|
-  click_on "#{telefone}"
+When('entao eu preencho os campos de email {string} password {string}') do |email, senha|
+  fill_in 'cliente[email]', :with => email
+  fill_in 'cliente[password]', :with => senha
 end
 
-Given('eu clico em editar o cadastro do cliente') do
-  click_on 'Edit this cliente'
-end
-
-When('eu clico no botao de atualizar cliente') do
-  click_on 'Update Cliente'
-end
-
-Then('eu vejo a mensagem de que o cliente foi atualizado com sucesso') do
-  expect(page).to have_content('Cliente was successfully update')
+When('clico no botao Log in') do
+  click_button 'Log in'
 end
 
 #quarto cenário
-Given('o cliente com telefone ‘{int}’ existe') do |telefone|
-  visit '/clientes/new'
-  fill_in 'cliente[nome]', :with => 'Augusto Cesar'
-  fill_in 'cliente[telefone]', :with => telefone
-  fill_in 'cliente[email]', :with => 'cesar.567@hotmail.com'
-  fill_in 'cliente[data_nascimento]', :with => '21/04/1981'
-  click_on 'Create Cliente'
-  expect(page).to have_content(telefone)
-  visit '/clientes/'
-  expect(page).to have_current_path(/clientes/)
-
-end
-
-When('eu clico em remover o cliente') do
-  click_button 'Destroy this cliente'
-end
-
-
-Then('eu vejo a mensagem de que o cliente foi apagado com sucesso') do
-  expect(page).to have_content('Cliente was successfully destroyed')
+Then('eu vejo a mensagem que a senha e muito pequena') do
+  expect(page).to have_content('Password is too short (minimum is 6 characters)')
 end
 
 #quinto cenário
-
-Then('eu vejo a todas informacoes do cliente com telefone {string}') do |telefone|
-  expect(page).to have_content(telefone)
+Then('eu vejo a mensagem que a data de nascimento e invalida') do
+  expect(page).to have_content('Data nascimento : Data de nascimento invalida')
 end
-
 
 
 
