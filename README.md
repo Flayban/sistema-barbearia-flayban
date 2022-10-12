@@ -46,6 +46,6 @@
 
 <h1>URL do Projeto</h1>
 <h4>
-   <a href = "https://obscure-taiga-18809.herokuapp.com/">Sistema Barbearia</a>
+   <a href = "https://thawing-falls-27001.herokuapp.com/">Sistema Barbearia</a>
 </h4>
 
