@@ -17,9 +17,10 @@
 <h1>URL do Projeto</h1>
 <h4>
    <a href = "https://thawing-falls-27001.herokuapp.com/">Sistema Barbearia</a>
-   <h4>Acesso para testes:</h4> 
-   <h4>login: admin@admin.teste </h4>
-   <h4>senha: password</h4>
+   <h4>Acessos para testes:</h4>
+   <h4>login: admin@admin.teste     | senha: password</h4>
+   <h4>login: cliente@cliente.teste | senha: password</h4>
+   <h4>login: barbeiro@barber.teste | senha: password</h4>
 </h4>
 
 <h1>Sobre o Projeto:</h1>
