@@ -14,6 +14,14 @@
    <a href = "https://github.com/luizz567">Luiz Gustavo</a>
 </h3>
 
+<h1>URL do Projeto</h1>
+<h4>
+   <a href = "https://thawing-falls-27001.herokuapp.com/">Sistema Barbearia</a>
+   <h4>Acesso para testes:</h4> 
+   <h4>login: admin@admin.teste </h4>
+   <h4>senha: password</h4>
+</h4>
+
 <h1>Sobre o Projeto:</h1>
 
 <h4>Projeto para implementação de um SaaS em Ruby e Rails com foco no servidor para a disciplina de Engenharia de Software ministrado pelo Professor Dr. <a href = "https://github.com/rcaa">Rodrigo Andrade</a>, da UFAPE, referente ao período de 2021.2 com intuito de avaliação para a 2ª Verificação de Aprendizagem. O projeto possui um cliente, Roberto (dono da <a href ="https://www.instagram.com/robertosimao_barbearia/">Roberto Barbearia</a>), que está a procura de um sistema para que possa ser possível, de maneira rápida e prática, realizar o gerenciamento de sua barbearia. O sistema irá ajudá-lo a planejar futuros serviços. Além disso, auxilia o prestador de serviço a ter uma melhor organização quanto aos serviços, visto que eles já teriam os nomes de seus clientes e os dados vinculados, levando assim uma forma mais otimizada da perspectiva dos serviços a serem feitos.</h4>
@@ -44,8 +52,4 @@
 <h1>Status do projeto:</h1>
 <h4>Em andamento</h4>
 
-<h1>URL do Projeto</h1>
-<h4>
-   <a href = "https://thawing-falls-27001.herokuapp.com/">Sistema Barbearia</a>
-</h4>
 
