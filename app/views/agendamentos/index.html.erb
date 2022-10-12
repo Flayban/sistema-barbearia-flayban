@@ -6,7 +6,7 @@
   <% @agendamentos.each do |agendamento| %>
     <%= render agendamento %>
     <p>
-      <%= link_to "Show this agendamento", agendamento %>
+      <%= link_to "Show this agendamento", agendamento,id:agendamento.cliente_id %>
     </p>
   <% end %>
 </div>

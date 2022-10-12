@@ -34,9 +34,9 @@ Feature: agendamento
   Scenario: cadastrar um aqendamento depois do fechamento da barbearia
     Given existe um cliente com os dados nome 'Neto Batista' telefone '87988575555' data_nascimento '19-04-1999' email 'neto.567@hotmai.com' password 'password'
     And existe um barbeiro com os dados nome 'Eduarda Interaminense' telefone '87996786666' data_nascimento '1996-09-01' email 'eduarda@barber.com' password 'password'
-    And existe um servico com os dados nome 'Limpeza' valor '25,00' e tempo '30'
+    And existe um servico com os dados nome 'Pezinho' valor '25,00' e tempo '30'
     When eu estou na pagina de clientes e clico no cliente
-    And eu seleciono o barbeiro 'Eduarda Interaminense' o servico 'Limpeza' e o inicioAtendimento '23:00'
+    And eu seleciono o barbeiro 'Eduarda Interaminense' o servico 'Pezinho' e o inicioAtendimento '23:00'
     And eu clico em Create Agendamento
     Then eu vejo uma mensagem de erro 'A barbearia ainda esta fechada'
 
